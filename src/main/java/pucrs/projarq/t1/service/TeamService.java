@@ -5,20 +5,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
-import pucrs.projarq.t1.repository.DataBase;
+import pucrs.projarq.t1.exception.NotAValidTeamException;
+import pucrs.projarq.t1.repository.TeamDataBase;
 
 @Service
 public class TeamService {
 
     @Autowired
-    private DataBase dataBase;
+    private TeamDataBase teamDataBase;
 
     public void insert(Team team) {
-        if (validateTeam(team)) {
-            dataBase.addTeam(team);
+        if(team.getStudents() == null) {
+            teamDataBase.addTeam(team);
         }
-
-        throw new RuntimeException();
+        else if (validateTeam(team)) {
+            teamDataBase.addTeam(team);
+        } else {
+            throw new NotAValidTeamException();
+        }
     }
 
     private boolean validateTeam(Team team) {
@@ -42,18 +46,26 @@ public class TeamService {
     }
 
     public List<Team> findAll() {
-        return dataBase.getTeamsBase();
+        return teamDataBase.getTeamsBase();
     }
 
     public Team update(Team team) {
-        return dataBase.updateTeam(team);
+        return teamDataBase.updateTeam(team);
     }
 
     public Team findById(String id) {
-        return dataBase.getById(id);
+        return teamDataBase.getById(id);
     }
 
     public Team delete(Team team) {
-        return dataBase.deleteTeam(team);
+        return teamDataBase.deleteTeam(team);
+    }
+
+    public void insertParticipant(Student participant, String teamId) {
+        teamDataBase.addParticipant(participant, teamId);
+    }
+
+    public boolean removeParticipant(Student participant, String teamId) {
+        return teamDataBase.removeParticipant(participant, teamId);
     }
 }

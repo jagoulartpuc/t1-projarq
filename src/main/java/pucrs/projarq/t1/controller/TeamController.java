@@ -9,8 +9,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pucrs.projarq.t1.domain.Review;
+import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
+import pucrs.projarq.t1.json.ReviewJSON;
+import pucrs.projarq.t1.json.StudentJSON;
+import pucrs.projarq.t1.json.TeamJSON;
+import pucrs.projarq.t1.service.ReviewerService;
 import pucrs.projarq.t1.service.TeamService;
 
 @RestController
@@ -20,17 +27,33 @@ public class TeamController {
     @Autowired
     private TeamService service;
 
+    @Autowired
+    private ReviewerService reviewerService;
+
     @PostMapping
-    public Team postTeam(
-            @RequestBody Team team
+    public TeamJSON postTeam(
+            @RequestBody TeamJSON teamJSON
     ) {
+        Team team = TeamJSON.from(teamJSON);
         service.insert(team);
 
-        return team;
+        return TeamJSON.toJson(team);
+    }
+
+    @PostMapping("/participant")
+    public StudentJSON postParticipant(
+            @RequestBody StudentJSON participantJSON,
+            @RequestParam("teamId") String teamId
+    ) {
+        Student participant = StudentJSON.from(participantJSON);
+        service.insertParticipant(participant, teamId);
+
+        return StudentJSON.toJson(participant);
     }
 
     @GetMapping
     public List<Team> getAll() {
+
         return service.findAll();
     }
 
@@ -42,10 +65,12 @@ public class TeamController {
     }
 
     @PutMapping()
-    public Team editTeam(
-            @RequestBody Team team
+    public TeamJSON editTeam(
+            @RequestBody TeamJSON teamJSON
     ) {
-        return service.update(team);
+        Team team = TeamJSON.from(teamJSON);
+
+        return TeamJSON.toJson(team);
     }
 
     @DeleteMapping("/{teamId}")
@@ -54,5 +79,24 @@ public class TeamController {
     ) {
 
         return service.delete(service.findById(teamId));
+    }
+
+    @DeleteMapping
+    public boolean removeParticipant(
+            @RequestBody Student participant,
+            @PathVariable("teamId") String teamId
+    ) {
+        return service.removeParticipant(participant, teamId);
+
+    }
+
+    @PutMapping("/review")
+    public TeamJSON putReviewToTeam(
+            @RequestBody ReviewJSON reviewJSON,
+            @RequestParam String teamId
+    ) {
+        Review review = ReviewJSON.from(reviewJSON);
+        reviewerService.insertReviewToTeam(teamId, review);
+        return TeamJSON.toJson(service.findById(teamId));
     }
 }
