@@ -5,13 +5,11 @@ import java.util.List;
 
 public class Team {
 
+    private static int idGenerator = 0;
     private String teamId;
     private List<Student> students;
     private Review review;
 
-    public Team() {
-
-    }
 
     public Team(String teamId, List<Student> students, Review review) {
         this.teamId = teamId;
@@ -24,8 +22,9 @@ public class Team {
         this.students = students;
     }
 
-    public Team(String teamId) {
-        this.teamId = teamId;
+    public Team() {
+        int id = idGenerator++;
+        this.teamId = String.valueOf(id);
     }
 
     public String getTeamId() {

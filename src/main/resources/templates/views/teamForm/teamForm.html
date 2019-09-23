@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Material Design for Bootstrap fonts and icons -->
@@ -14,23 +14,44 @@
         <div class="row">
          <div class="col">
             <h2>Cadastro do Time</h2>
+             <label>ID: </label><label><input disabled="true" th:value="${team.getTeamId()}"></label>
+             <table class="table">
+                 <thead>
+                 <th>Nome</th>
+                 <th>Curso</th>
+                 <th>Ação</th>
+                 </thead>
+                 <tbody>
+                 <tr th:each="student : ${team.getStudents()}">
+                     <td th:text="${student.getName()}"></td>
+                     <td th:text="${student.getCourse()}"></td>
+                     <td><li>Adicionar</li></td>
+                 </tr>
+                 </tbody>
+
+             </table>
          </div>
          <div class="col">
             <h2>Lista de Alunos</h2>
              <div class="row">
-                 <div class="col-md-12">
-
-                     <select class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
-                         <option value="" disabled selected>Choose your country</option>
-                         <option value="1">USA</option>
-                         <option value="2">Germany</option>
-                         <option value="3">France</option>
-                         <option value="4">Poland</option>
-                         <option value="5">Japan</option>
-                     </select>
-                     <label class="mdb-main-label">Label example</label>
-                     <button class="btn-save btn btn-primary btn-sm">Save</button>
-
+                 <div class="col">
+                     <labe>Nome: </labe>
+                     <label> <input type="text"> </label>
+                     <button>Buscar </button>
+                     <table class="table">
+                         <thead>
+                         <th>Nome</th>
+                         <th>Curso</th>
+                         <th>Ação</th>
+                         </thead>
+                         <tbody>
+                         <tr th:each="student : ${studentList}">
+                             <td th:text="${student.getName()}"></td>
+                             <td th:text="${student.getCourse()}"></td>
+                             <td><li>Adicionar</li></td>
+                         </tr>
+                         </tbody>
+                     </table>
                  </div>
              </div>
          </div>
