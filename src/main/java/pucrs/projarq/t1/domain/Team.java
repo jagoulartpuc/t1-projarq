@@ -13,10 +13,8 @@ import java.util.List;
 @Component
 public class Team implements Serializable {
 
-    
     @JsonProperty(value = "teamId")
     private String teamId;
-
     @JsonProperty(value = "students")
     private ArrayList<Student> students;
 }

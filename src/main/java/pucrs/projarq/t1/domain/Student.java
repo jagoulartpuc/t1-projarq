@@ -8,13 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Student extends User{
 
-    @JsonProperty("name")
+    private static int idGenerator = 0;
     private String name;
-    @JsonProperty("course")
     private String course;
-
-
-
-
-
 }

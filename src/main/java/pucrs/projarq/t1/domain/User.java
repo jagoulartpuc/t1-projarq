@@ -8,10 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class User {
 
+    private static int idGenerator = 0;
+
     @JsonProperty("cpf")
     private String cpf;
     @JsonProperty("password")
     private String password;
-    @JsonProperty("reviwer")
+    @JsonProperty("reviewer")
     private boolean reviewer;
 }
