@@ -19,34 +19,9 @@ public class TeamDataBase {
         teamsBase.add(team);
     }
 
-    public Team getById(String  id) {
-        for (Team team: teamsBase) {
-            if (team.getTeamId().equals(id)) {
-                return team;
-            }
-        }
-        return null;
+    public List<Team> getAll(){
+        return teamsBase;
     }
 
-    public Team deleteTeam(Team team) {
-        Team aux = team;
-        teamsBase.remove(team);
-        return aux;
-    }
-
-    public Team updateTeam(Team newTeam) {
-        Team team = getById(newTeam.getTeamId());
-        team.setStudents(newTeam.getStudents());
-
-        return team;
-    }
-
-    public void addParticipant(Student participant, String teamId) {
-        getById(teamId).getStudents().add(participant);
-    }
-
-    public boolean removeParticipant(Student participant, String teamId) {
-        return getById(teamId).getStudents().remove(participant);
-    }
 
 }

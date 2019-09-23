@@ -8,7 +8,6 @@ import java.util.ArrayList;
 @Component
 public class StudentDataBase {
 
-    public StudentDataBase(){studentBase.add(new Student("teste","teste","teste","teste"));}
 
     private static ArrayList<Student> studentBase = new ArrayList<Student>();
 

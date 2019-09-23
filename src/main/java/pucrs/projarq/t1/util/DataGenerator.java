@@ -37,12 +37,7 @@ public class DataGenerator {
                 "fwsdef32r", "sdf32fr3f", "fewf43434", "fwef4444rf4", "sadfewrfg7u8", "jnhys3435s", "sd73yh6634"};
 
 
-        for(int i = 0; i < 100; i++) {
-            String fullname = names[r.nextInt(names.length)] + " " + lastNames[r.nextInt(lastNames.length)];
 
-            students.add(new Student(cpfs[r.nextInt(cpfs.length)], fullname, courses[r.nextInt(courses.length)],
-                    passwords[r.nextInt(passwords.length)]));
-        }
 
         return students;
     }
