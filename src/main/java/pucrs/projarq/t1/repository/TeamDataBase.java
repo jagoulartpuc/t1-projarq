@@ -9,6 +9,8 @@ import pucrs.projarq.t1.domain.Team;
 @Component
 public class TeamDataBase {
 
+
+
     private static List<Team> teamsBase = new ArrayList<>();
 
     public List<Team> getTeamsBase() {

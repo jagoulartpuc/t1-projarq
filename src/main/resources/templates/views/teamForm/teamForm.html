@@ -15,7 +15,7 @@
         <div class="row">
          <div class="col">
             <h2>Cadastro do Time</h2>
-             <label>ID: </label><label><input disabled="true" th:value="${team.getTeamId()}"></label>
+             <label>ID: </label><label><input disabled="true"></label>
              <button th:onclick="">Cadastrar time</button>
              <table class="table" id="studentTeamList" name="studentTeamList">
                  <thead>
@@ -47,7 +47,7 @@
                          <tr th:each="student : ${studentList}">
                              <td th:text="${student.getName()}"></td>
                              <td th:text="${student.getCourse()}"></td>
-                             <td><a th:onclick="table([[${student.getName()}]],[[${student.getCourse()}]])">Adicionar</a></td>
+                             <td><a th:onclick="addAluno([[${student.getName()}]],[[${student.getCourse()}]])">Adicionar</a></td>
                          </tr>
                          </tbody>
                      </table>
@@ -59,12 +59,12 @@
 </body>
 
 <script>
-    function addAluno(nome, curso, teamId){
+    function addAluno(nome, curso){
         console.log(nome,curso,teamId);
         $.ajax({
            method: "POST",
-            url: "/t1/teams/participant?teamId="+teamId,
-            data: JSON.stringify({nome: nome, curso: curso }),
+            url: "/addAluno",
+            data: JSON.stringify({nome: nome, course: curso }),
             contentType: 'application/json'
         })
     }
