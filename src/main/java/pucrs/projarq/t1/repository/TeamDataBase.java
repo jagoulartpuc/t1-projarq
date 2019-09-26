@@ -17,8 +17,8 @@ public class TeamDataBase {
         return teamsBase;
     }
 
-    public void addTeam(Team team) {
-        teamsBase.add(team);
+    public boolean addTeam(Team team) {
+        return teamsBase.add(team);
     }
 
     public List<Team> getAll(){

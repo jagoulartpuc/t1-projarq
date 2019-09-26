@@ -14,8 +14,8 @@ public class TeamService {
     @Autowired
     private TeamDataBase teamDataBase;
 
-    public void insert(Team team) {
-        teamDataBase.addTeam(team);
+    public boolean insert(Team team) {
+        return teamDataBase.addTeam(team);
     }
 
     public List<Team> getAll(){

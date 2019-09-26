@@ -11,17 +11,4 @@ public class IndexController {
     @Autowired
     TeamFormController teamFormController;
 
-    @GetMapping(value="/")
-    public ModelAndView index(){
-        System.out.println("");
-        ModelAndView mav = new ModelAndView("/views/index/index.html");
-        mav.addObject("message",new String("Hackatona App"));
-        return mav;
-    }
-
-    @GetMapping(value="/studentForm")
-    public ModelAndView studentForm(){
-        System.out.println("Student Form");
-        return teamFormController.teamForm();
-    }
 }
