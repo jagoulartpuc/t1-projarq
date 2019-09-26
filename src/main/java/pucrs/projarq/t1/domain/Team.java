@@ -17,4 +17,5 @@ public class Team implements Serializable {
     private int id;
     @JsonProperty(value = "students")
     private ArrayList<Student> students;
+    private String name;
 }
