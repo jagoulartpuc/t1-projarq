@@ -3,7 +3,7 @@ package pucrs.projarq.t1.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pucrs.projarq.t1.domain.Student;
-import pucrs.projarq.t1.repository.StudentDataBase;
+import pucrs.projarq.t1.repository.StudentRepository;
 
 import java.util.List;
 
@@ -11,15 +11,19 @@ import java.util.List;
 public class StudentService {
 
     @Autowired
-    StudentDataBase studentDataBase;
+    StudentRepository studentRepository;
 
-
-    public List<Student> findAll(){return studentDataBase.getAll();}
-
-    public boolean addStudent(Student student){
-        return studentDataBase.addStudent(student);
+    public List<Student> all(){
+        return studentRepository.all();
     }
 
+    public boolean save(Student student){
+        return studentRepository.save(student);
+    }
+
+    public Student getById(int id){
+        return studentRepository.getById(id);
+    }
 
 
 }

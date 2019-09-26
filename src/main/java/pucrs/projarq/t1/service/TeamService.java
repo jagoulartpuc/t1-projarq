@@ -3,26 +3,24 @@ package pucrs.projarq.t1.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
-import pucrs.projarq.t1.exception.NotAValidTeamException;
-import pucrs.projarq.t1.repository.TeamDataBase;
+import pucrs.projarq.t1.repository.TeamRepository;
 
 @Service
 public class TeamService {
 
     @Autowired
-    private TeamDataBase teamDataBase;
+    TeamRepository teamRepository;
 
-    public boolean insert(Team team) {
-        return teamDataBase.addTeam(team);
+    public boolean save(Team team) {
+        return teamRepository.save(team);
     }
 
-    public List<Team> getAll(){
-        return teamDataBase.getAll();
+    public List<Team> all(){
+        return teamRepository.all();
     }
 
-    public TeamDataBase getTeamDataBase() {
-        return teamDataBase;
+    public Team getById(int id){
+        return teamRepository.getById(id);
     }
 }

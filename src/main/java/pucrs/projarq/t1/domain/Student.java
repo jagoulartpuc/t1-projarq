@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 public class Student extends User{
 
     private static int idGenerator = 0;
+
+    private int id;
     private String name;
     private String course;
 
