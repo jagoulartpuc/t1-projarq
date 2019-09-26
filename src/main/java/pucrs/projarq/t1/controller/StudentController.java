@@ -12,6 +12,7 @@ import pucrs.projarq.t1.service.TeamService;
 import javax.websocket.server.PathParam;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api")
 public class StudentController {
@@ -20,6 +21,7 @@ public class StudentController {
     private StudentService studentService;
 
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/student/{id}")
     public ResponseEntity getById(@PathVariable("id") int id) {
         Student student = studentService.getById(id);
@@ -27,6 +29,7 @@ public class StudentController {
                 new ResponseEntity<>("Erro ao buscar Student.", HttpStatus.BAD_REQUEST);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/student", produces = "application/json")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(studentService.all());
