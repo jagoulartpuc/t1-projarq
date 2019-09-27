@@ -23,7 +23,7 @@ public class ReviewerDataBase {
         reviewersBase.add(reviewer);
     }
 
-    public Reviewer getByCpf(String  cpf) {
+    public Reviewer getByCpf(String cpf) {
         for (Reviewer reviewer: reviewersBase) {
             if (reviewer.getCpf().equals(cpf)) {
                 return reviewer;

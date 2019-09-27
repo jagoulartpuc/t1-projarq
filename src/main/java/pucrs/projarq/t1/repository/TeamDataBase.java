@@ -2,6 +2,7 @@ package pucrs.projarq.t1.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Component;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
@@ -34,19 +35,17 @@ public class TeamDataBase {
         return aux;
     }
 
-    public Team updateTeam(Team newTeam) {
-        Team team = getById(newTeam.getTeamId());
-        team.setStudents(newTeam.getStudents());
-
-        return team;
-    }
-
     public void addParticipant(Student participant, String teamId) {
         getById(teamId).getStudents().add(participant);
     }
 
-    public boolean removeParticipant(Student participant, String teamId) {
+    public boolean removeParticipant(String cpf, String teamId) {
+        Optional<Student> participant = getById(teamId).getStudents()
+                .stream().filter(s -> s.getCpf().equals(cpf)).findFirst();
+
         return getById(teamId).getStudents().remove(participant);
     }
+
+
 
 }

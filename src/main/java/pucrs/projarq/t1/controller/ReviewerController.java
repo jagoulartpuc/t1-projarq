@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pucrs.projarq.t1.domain.Review;
 import pucrs.projarq.t1.domain.Reviewer;
-import pucrs.projarq.t1.json.ReviewJSON;
-import pucrs.projarq.t1.json.ReviewerJSON;
 import pucrs.projarq.t1.service.ReviewerService;
 
 @RestController
@@ -24,27 +22,24 @@ public class ReviewerController {
     private ReviewerService service;
 
     @PostMapping
-    public ReviewerJSON postReviewer(
-            @RequestBody ReviewerJSON reviewerJSON
+    public Reviewer postReviewer(
+            @RequestBody Reviewer reviewer
     ) {
-        Reviewer reviewer = ReviewerJSON.from(reviewerJSON);
         service.insert(reviewer);
 
-        return ReviewerJSON.toJson(reviewer);
+        return reviewer;
     }
 
     @PostMapping("/review")
-    public ReviewJSON postReview(
-            @RequestBody ReviewJSON reviewJSON,
-            @RequestParam String cpf
+    public Review postReview(
+            @RequestBody Review review,
+            @RequestParam String cpf,
+            @RequestParam String teamId
     ) {
-        Review review = ReviewJSON.from(reviewJSON);
-        service.insert(review, cpf);
+        service.insert(review, cpf, teamId);
 
-        return ReviewJSON.toJson(review);
+        return review;
     }
-
-
 
     @GetMapping
     public List<Reviewer> getAll() {

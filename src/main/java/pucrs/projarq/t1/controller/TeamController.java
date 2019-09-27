@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import pucrs.projarq.t1.domain.Review;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
-import pucrs.projarq.t1.json.ReviewJSON;
-import pucrs.projarq.t1.json.StudentJSON;
-import pucrs.projarq.t1.json.TeamJSON;
 import pucrs.projarq.t1.service.ReviewerService;
 import pucrs.projarq.t1.service.TeamService;
 
@@ -31,29 +28,26 @@ public class TeamController {
     private ReviewerService reviewerService;
 
     @PostMapping
-    public TeamJSON postTeam(
-            @RequestBody TeamJSON teamJSON
+    public Team postTeam(
+            @RequestBody Team team
     ) {
-        Team team = TeamJSON.from(teamJSON);
         service.insert(team);
 
-        return TeamJSON.toJson(team);
+        return team;
     }
 
     @PostMapping("/participant")
-    public StudentJSON postParticipant(
-            @RequestBody StudentJSON participantJSON,
+    public Student postParticipant(
+            @RequestBody Student participant,
             @RequestParam("teamId") String teamId
     ) {
-        Student participant = StudentJSON.from(participantJSON);
         service.insertParticipant(participant, teamId);
 
-        return StudentJSON.toJson(participant);
+        return participant;
     }
 
     @GetMapping
     public List<Team> getAll() {
-
         return service.findAll();
     }
 
@@ -64,39 +58,30 @@ public class TeamController {
         return service.findById(teamId);
     }
 
-    @PutMapping()
-    public TeamJSON editTeam(
-            @RequestBody TeamJSON teamJSON
-    ) {
-        Team team = TeamJSON.from(teamJSON);
-
-        return TeamJSON.toJson(team);
-    }
-
     @DeleteMapping("/{teamId}")
     public Team deleteTeam(
             @PathVariable("teamId") String teamId
     ) {
-
-        return service.delete(service.findById(teamId));
+        Team team = service.findById(teamId);
+        return service.delete(team);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/student/{cpf}")
     public boolean removeParticipant(
-            @RequestBody Student participant,
-            @PathVariable("teamId") String teamId
+            @PathVariable("cpf") String cpf,
+            @RequestParam("teamId") String teamId
     ) {
-        return service.removeParticipant(participant, teamId);
+        System.out.println("veja");
+        return service.removeParticipant(cpf, teamId);
 
     }
 
     @PutMapping("/review")
-    public TeamJSON putReviewToTeam(
-            @RequestBody ReviewJSON reviewJSON,
+    public Team putReviewToTeam(
+            @RequestBody Review review,
             @RequestParam String teamId
     ) {
-        Review review = ReviewJSON.from(reviewJSON);
         reviewerService.insertReviewToTeam(teamId, review);
-        return TeamJSON.toJson(service.findById(teamId));
+        return service.findById(teamId);
     }
 }

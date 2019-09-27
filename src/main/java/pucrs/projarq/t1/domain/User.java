@@ -1,21 +1,17 @@
 package pucrs.projarq.t1.domain;
 
+
+import lombok.Data;
+import org.springframework.stereotype.Component;
+
+@Data
+@Component
 public class User {
 
     private String cpf;
     private String password;
     private boolean reviewer;
 
-
-    public User(String cpf, String password, boolean reviewer) {
-        this.cpf = cpf;
-        this.password = password;
-        this.reviewer = reviewer;
-    }
-
-    public User() {
-
-    }
 
     public String getCpf() {
         return cpf;

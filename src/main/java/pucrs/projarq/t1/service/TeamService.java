@@ -15,7 +15,7 @@ public class TeamService {
     private TeamDataBase teamDataBase;
 
     public void insert(Team team) {
-        if(team.getStudents() == null) {
+        if(team.getStudents() == null || team.getStudents().isEmpty()) {
             teamDataBase.addTeam(team);
         }
         else if (validateTeam(team)) {
@@ -41,16 +41,10 @@ public class TeamService {
 
         return (countES < team.getStudents().size() || countCC < team.getStudents().size() ||
                 countEC < team.getStudents().size() || countSI < team.getStudents().size());
-
-
     }
 
     public List<Team> findAll() {
         return teamDataBase.getTeamsBase();
-    }
-
-    public Team update(Team team) {
-        return teamDataBase.updateTeam(team);
     }
 
     public Team findById(String id) {
@@ -65,7 +59,7 @@ public class TeamService {
         teamDataBase.addParticipant(participant, teamId);
     }
 
-    public boolean removeParticipant(Student participant, String teamId) {
-        return teamDataBase.removeParticipant(participant, teamId);
+    public boolean removeParticipant(String cpf, String teamId) {
+        return teamDataBase.removeParticipant(cpf, teamId);
     }
 }

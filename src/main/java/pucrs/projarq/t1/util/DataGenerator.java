@@ -41,7 +41,7 @@ public class DataGenerator {
             String fullname = names[r.nextInt(names.length)] + " " + lastNames[r.nextInt(lastNames.length)];
 
             students.add(new Student(cpfs[r.nextInt(cpfs.length)], fullname, courses[r.nextInt(courses.length)],
-                    passwords[r.nextInt(passwords.length)]));
+                    passwords[r.nextInt(passwords.length)], false));
         }
 
         return students;
