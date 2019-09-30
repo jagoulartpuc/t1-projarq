@@ -53,12 +53,12 @@ public class ReviewerController {
         return service.findByCpf(cpf);
     }
 
-    @DeleteMapping("/{cpf}")
+    @DeleteMapping
     public Reviewer deleteReviewer(
-            @PathVariable("cpf") String cpf
+            @RequestBody Reviewer reviewer
     ) {
 
-        return service.delete(service.findByCpf(cpf));
+        return service.delete(reviewer);
     }
 
 

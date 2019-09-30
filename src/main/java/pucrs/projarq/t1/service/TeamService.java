@@ -1,12 +1,14 @@
 package pucrs.projarq.t1.service;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.exception.NotAValidTeamException;
 import pucrs.projarq.t1.repository.TeamDataBase;
+import pucrs.projarq.t1.util.DataGenerator;
 
 @Service
 public class TeamService {
@@ -47,19 +49,27 @@ public class TeamService {
         return teamDataBase.getTeamsBase();
     }
 
+    public List<Student> findAllStudents() {
+        return DataGenerator.students;
+    }
+
     public Team findById(String id) {
         return teamDataBase.getById(id);
+    }
+
+    public Student findByCpf(String cpf) {
+        return teamDataBase.getByCpf(cpf);
     }
 
     public Team delete(Team team) {
         return teamDataBase.deleteTeam(team);
     }
 
-    public void insertParticipant(Student participant, String teamId) {
-        teamDataBase.addParticipant(participant, teamId);
+    public void insertParticipant(String cpf, String teamId) {
+        teamDataBase.addParticipant(cpf, teamId);
     }
 
-    public boolean removeParticipant(String cpf, String teamId) {
-        return teamDataBase.removeParticipant(cpf, teamId);
+    public boolean removeParticipant(Student student, String teamId) {
+        return teamDataBase.deleteParticipant(student, teamId);
     }
 }

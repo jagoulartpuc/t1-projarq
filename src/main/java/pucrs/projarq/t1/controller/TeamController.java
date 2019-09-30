@@ -37,18 +37,23 @@ public class TeamController {
     }
 
     @PostMapping("/participant")
-    public Student postParticipant(
-            @RequestBody Student participant,
+    public String postParticipant(
+            @RequestParam("cpf") String cpf,
             @RequestParam("teamId") String teamId
     ) {
-        service.insertParticipant(participant, teamId);
+        service.insertParticipant(cpf, teamId);
 
-        return participant;
+        return cpf;
     }
 
     @GetMapping
     public List<Team> getAll() {
         return service.findAll();
+    }
+
+    @GetMapping("/participant")
+    public List<Student> getAllStudents() {
+        return service.findAllStudents();
     }
 
     @GetMapping("/{teamId}")
@@ -58,21 +63,26 @@ public class TeamController {
         return service.findById(teamId);
     }
 
-    @DeleteMapping("/{teamId}")
-    public Team deleteTeam(
-            @PathVariable("teamId") String teamId
+    @GetMapping("/participant/{cpf}")
+    public Student getParticipant(
+            @PathVariable("cpf") String cpf
     ) {
-        Team team = service.findById(teamId);
+        return service.findByCpf(cpf);
+    }
+
+    @DeleteMapping
+    public Team deleteTeam(
+            @RequestBody Team team
+    ) {
         return service.delete(team);
     }
 
-    @DeleteMapping("/student/{cpf}")
+    @DeleteMapping("/participant")
     public boolean removeParticipant(
-            @PathVariable("cpf") String cpf,
+            @RequestBody Student student,
             @RequestParam("teamId") String teamId
     ) {
-        System.out.println("veja");
-        return service.removeParticipant(cpf, teamId);
+        return service.removeParticipant(student, teamId);
 
     }
 

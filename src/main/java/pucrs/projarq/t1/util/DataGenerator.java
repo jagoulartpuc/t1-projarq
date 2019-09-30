@@ -7,6 +7,9 @@ import pucrs.projarq.t1.domain.Student;
 
 public class DataGenerator {
 
+    public static final ArrayList<Student> students = new ArrayList<>(generateStudents());
+
+
     public static List<Student> generateStudents() {
 
         List<Student> students = new ArrayList<>();
@@ -40,7 +43,7 @@ public class DataGenerator {
         for(int i = 0; i < 100; i++) {
             String fullname = names[r.nextInt(names.length)] + " " + lastNames[r.nextInt(lastNames.length)];
 
-            students.add(new Student(cpfs[r.nextInt(cpfs.length)], fullname, courses[r.nextInt(courses.length)],
+            students.add(new Student(fullname, courses[r.nextInt(courses.length)], cpfs[r.nextInt(cpfs.length)],
                     passwords[r.nextInt(passwords.length)], false));
         }
 

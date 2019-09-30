@@ -2,10 +2,11 @@ package pucrs.projarq.t1.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.stereotype.Component;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
+import pucrs.projarq.t1.exception.ParticipantDontExistException;
+import pucrs.projarq.t1.util.DataGenerator;
 
 @Component
 public class TeamDataBase {
@@ -35,15 +36,28 @@ public class TeamDataBase {
         return aux;
     }
 
-    public void addParticipant(Student participant, String teamId) {
-        getById(teamId).getStudents().add(participant);
+    public void addParticipant(String cpf, String teamId) {
+        Student student = getByCpf(cpf);
+        if (DataGenerator.students.contains(student)) {
+            getById(teamId).getStudents().add(student);
+        } else {
+            throw new ParticipantDontExistException();
+        }
     }
 
-    public boolean removeParticipant(String cpf, String teamId) {
-        Optional<Student> participant = getById(teamId).getStudents()
-                .stream().filter(s -> s.getCpf().equals(cpf)).findFirst();
+    public Student getByCpf(String cpf) {
+        for (Student student: DataGenerator.students) {
+            if (student.getCpf().equals(cpf)) {
+                return student;
+            }
+        }
+        System.out.println("caiu aqui");
+        return null;
+    }
 
-        return getById(teamId).getStudents().remove(participant);
+    public boolean deleteParticipant(Student student, String teamId) {
+
+        return getById(teamId).getStudents().remove(student);
     }
 
 
