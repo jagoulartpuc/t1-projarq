@@ -8,10 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
-<<<<<<< HEAD
-=======
 import pucrs.projarq.t1.service.ReviewerService;
->>>>>>> origin/jose
 import pucrs.projarq.t1.service.TeamService;
 
 import javax.websocket.server.PathParam;
@@ -21,27 +18,6 @@ import javax.websocket.server.PathParam;
 @CrossOrigin(origins = "http://localhost:3000")
 public class TeamController {
 
-<<<<<<< HEAD
-    @Autowired
-    private TeamService teamService;
-
-    @GetMapping(path = "/team")
-    public ResponseEntity<?> getAll(){
-        return ResponseEntity.ok(teamService.all());
-    }
-
-    @PostMapping(path = "/team",  consumes = "application/json")
-    public ResponseEntity<?> postTeam(@RequestBody Team team){
-       return teamService.save(team) ? ResponseEntity.ok(team) :
-               new ResponseEntity<>("Erro ao criar Team.", HttpStatus.BAD_REQUEST);
-    }
-
-    @GetMapping("/team/{id}")
-    public ResponseEntity<?> getById(@PathVariable("id") int id){
-        Team team = teamService.getById(id);
-        return team != null ? ResponseEntity.ok(team) :
-                new ResponseEntity<>("Erro ao buscar Team.", HttpStatus.BAD_REQUEST);
-=======
     private TeamService service;
 
     private ReviewerService reviewerService;
@@ -109,6 +85,5 @@ public class TeamController {
     ) {
         reviewerService.insertReviewToTeam(teamId, review);
         return service.findById(teamId);
->>>>>>> origin/jose
     }
 }
