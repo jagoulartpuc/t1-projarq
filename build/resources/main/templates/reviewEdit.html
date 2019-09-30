@@ -12,8 +12,9 @@
 </head>
 <body>
 <div id="container" class="container">
-    <h1 align="center">Editar Equipe</h1>
+    <h1 align="center">Editar Avaliação</h1>
     <h2>Avaliação</h2>
+    <form>
     <table class="table table-sm">
         <thead>
         <tr>
@@ -27,12 +28,12 @@
         </thead>
         <tbody>
         <tr>
-            <td><input disabled="true" size="2px"></td>
-            <td><input disabled="true" size="2px"></td>
-            <td><input disabled="true" size="2px"></td>
-            <td><input disabled="true" size="2px"></td>
-            <td><input disabled="true" size="2px"></td>
-            <td><a th:href="@{/team/review/{teamId}(teamId=${team.teamId})}">Editar</a></td>
+            <td><input name="work" type="text" size="10px"></td>
+            <td><input name="process"type="text" size="10px"></td>
+            <td><input name="innovation" type="text" size="10px"></td>
+            <td><input name="pitch" type="text" size="10px"></td>
+            <td><input name="formation" type="text" size="10px"></td>
+            <td><a href="/">Salvar</a></td>
         </tr>
         </tbody>
 
@@ -54,11 +55,12 @@
                 <td th:text="${student.cpf}"></td>
                 <td th:text="${student.name}"></td>
                 <td th:text="${student.course}"></td>
-                <td><a href="/">Editar</a></td>
+                <td><a th:href="@{/team/review/{teamId}(teamId=${team.teamId})}">Editar</a></td>
             </tr>
         </th:block>
         </tbody>
     </table>
+    </form>
 
 </div>
 

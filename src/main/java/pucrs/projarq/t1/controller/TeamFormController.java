@@ -1,6 +1,5 @@
 package pucrs.projarq.t1.controller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +23,7 @@ public class TeamFormController {
     @GetMapping(value="/")
     public ModelAndView index(){
         System.out.println("Team List");
-        ModelAndView mav = new ModelAndView("index");
+        ModelAndView mav = new ModelAndView("teamList");
         ArrayList<Team> teamList;
         teamList = (ArrayList<Team>) teamController.getAll();
         for(Team t : teamList){
@@ -44,6 +43,17 @@ public class TeamFormController {
         mav.addObject("team", team);
         mav.addObject("students", team.getStudents());
 
+        return mav;
+    }
+
+    @GetMapping(value="/team/review/{teamId}")
+    public ModelAndView editReview(@PathVariable("teamId") String teamId){
+        System.out.println("Edit Review");
+        System.out.println(teamId);
+        ModelAndView mav = new ModelAndView("reviewEdit");
+        Team team = teamController.getTeam(teamId);
+        mav.addObject("team", team);
+        mav.addObject("teamReview", team.getReview());
         return mav;
     }
 }
