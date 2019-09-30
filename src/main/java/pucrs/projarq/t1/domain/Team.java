@@ -9,6 +9,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Team {
 
+    private int idGenerator = 0;
+
+    public Team(){
+        int id = idGenerator++;
+        this.teamId = Integer.toString(id);
+    }
+
     private String teamId;
     private String name;
     private List<Student> students = new ArrayList<>();

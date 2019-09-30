@@ -15,10 +15,12 @@ public class TeamService {
 
     private TeamDataBase teamDataBase;
 
+
     @Autowired
     public TeamService(TeamDataBase teamDataBase) {
         this.teamDataBase = teamDataBase;
     }
+
 
     public void insert(Team team) {
         if (team.getStudents() == null || team.getStudents().isEmpty()) {

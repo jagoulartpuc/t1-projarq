@@ -39,13 +39,14 @@
             <h1 align="center">Criar Equipe</h1>
             <div id="formEquipe"></div>
             <h2>Lista Integrantes</h2>
-            <form>
+
                 <table id="formTable" class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Curso</th>
+                            <th scope="col">CPF</th>
                             <th scope="col">Ação</th>
                         </tr>
                     </thead>
@@ -54,10 +55,7 @@
                     </tbody>
                 </table>
                 </nav>
-
-                    <tr class="row"> <label>Equipe: </label><input id="teamName" type="text" size="10"> <button>Cadastrar</button></tr>
-
-            </form>
+                    <tr class="row"> <label>Equipe: </label><input id="teamName" type="text" size="10"> <button onclick="submitTeam()">Cadastrar</button></tr>
         </div>
         </div>
 
@@ -72,17 +70,35 @@
                 dataType: 'json',
                 contentType: 'application/json',
                 success: function(data) {
-                    var row = '<tr><td>'+data.name+'<td>'+'<td>'+data.course+'</td></tr>';
+                    var row = '<tr><td class="name" id="name" >'+data.name+'<td>'+'<td>'+data.course+'</td>'+'<td class="tdCpf" id="tdCpf">'+data.cpf+'</td></tr>';
                     $("#formTable").append(row)
                 }
             });
         }
-
         function submitTeam(){
-            
+            console.log('Submit Team')
+            var cpfs = []
+            var name = jQuery("#teamName").val();
+            $('.name').each(function() {
+                var cellText = $(this).html();
+                console.log(cellText)
+                cpfs.push({
+                    name:cellText
+                })
+            });
+            console.log(JSON.stringify(cpfs));
+            console.log(name)
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8080/t1/teams/team/'+name,
+                dataType: 'json',
+                data: JSON.stringify(cpfs),
+                contentType: 'application/json',
+                success: function(data) {
+                    alert('Time criado com sucesso!');
+                    window.location.href='http://localhost:8080/team/'+data.teamId
+                }
+            });
         }
     </script>
-
-
-
 </html>

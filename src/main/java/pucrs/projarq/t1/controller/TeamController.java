@@ -1,5 +1,6 @@
 package pucrs.projarq.t1.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,38 @@ public class TeamController {
         service.insert(team);
 
         return team;
+    }
+
+    @PostMapping("/team/{name}")
+    public Team createTeam(@RequestBody ArrayList<Student> students, @PathVariable String name){
+        System.out.println("Create team");
+        System.out.println(students);
+        Team team = new Team();
+        ArrayList<Student> listStudents = new ArrayList<Student>();
+
+        for(Student s : students){
+            System.out.println(s.getName());
+        }
+
+        for(Student s : service.findAllStudents()){
+            for(Student aux : students){
+                if(aux.getName().equals(s.getName())){
+                    System.out.println("ACCCCCCCCCCCHEI");
+                    listStudents.add(s);
+                }
+            }
+        }
+
+        System.out.println("Lista do Team");
+        for(Student s : listStudents){
+            System.out.println(s.getCpf());
+        }
+
+        team.setName(name);
+        team.setStudents(listStudents);
+        service.insert(team);
+        return team;
+
     }
 
     @PostMapping("/participant")
