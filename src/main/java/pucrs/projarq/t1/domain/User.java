@@ -1,6 +1,10 @@
 package pucrs.projarq.t1.domain;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonProperty;
+=======
+
+>>>>>>> origin/jose
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
@@ -16,4 +20,33 @@ public class User {
     private String password;
     @JsonProperty("reviewer")
     private boolean reviewer;
+<<<<<<< HEAD
 }
+=======
+
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isReviewer() {
+        return reviewer;
+    }
+
+    public void setReviewer(boolean reviewer) {
+        this.reviewer = reviewer;
+    }
+}
+>>>>>>> origin/jose

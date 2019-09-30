@@ -38,6 +38,12 @@ public class DataGenerator {
 
 
 
+<<<<<<< HEAD
+=======
+            students.add(new Student(cpfs[r.nextInt(cpfs.length)], fullname, courses[r.nextInt(courses.length)],
+                    passwords[r.nextInt(passwords.length)], false));
+        }
+>>>>>>> origin/jose
 
         return students;
     }
