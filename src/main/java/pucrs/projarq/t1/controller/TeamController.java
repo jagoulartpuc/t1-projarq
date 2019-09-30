@@ -7,6 +7,7 @@ import pucrs.projarq.t1.domain.Review;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.service.ReviewerService;
+import pucrs.projarq.t1.service.StudentService;
 import pucrs.projarq.t1.service.TeamService;
 
 @RestController
@@ -15,15 +16,15 @@ import pucrs.projarq.t1.service.TeamService;
 public class TeamController {
 
     private TeamService service;
-
     private ReviewerService reviewerService;
+    private StudentService studentService;
 
     @Autowired
-    public TeamController(TeamService teamService, ReviewerService reviewerService){
+    public TeamController(TeamService teamService, ReviewerService reviewerService, StudentService studentService){
         this.service = teamService;
         this.reviewerService = reviewerService;
+        this.studentService = studentService;
     }
-
 
     @PostMapping
     public Team postTeam(
@@ -51,6 +52,7 @@ public class TeamController {
 
     @GetMapping("/participant")
     public List<Student> getAllStudents() {
+        System.out.println(service.findAllStudents());
         return service.findAllStudents();
     }
 

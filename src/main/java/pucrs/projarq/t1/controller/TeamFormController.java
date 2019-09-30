@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.repository.TeamDataBase;
 import pucrs.projarq.t1.service.ReviewerService;
+import pucrs.projarq.t1.service.StudentService;
 import pucrs.projarq.t1.service.TeamService;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 public class TeamFormController {
 
     @Autowired
-    TeamController teamController = new TeamController(new TeamService(new TeamDataBase()), new ReviewerService());
+    TeamController teamController = new TeamController(new TeamService(new TeamDataBase()), new ReviewerService(), new StudentService());
 
     ArrayList<Team> teamList = new ArrayList<Team>();
 
@@ -55,6 +56,14 @@ public class TeamFormController {
         Team team = teamController.getTeam(teamId);
         mav.addObject("team", team);
         mav.addObject("teamReview", team.getReview());
+        return mav;
+    }
+
+    @GetMapping(value="/team/create")
+    public ModelAndView createTeam(){
+        System.out.println("Create Team");
+        ModelAndView mav = new ModelAndView("teamForm");
+        mav.addObject("students", teamController.getAllStudents());
         return mav;
     }
 }

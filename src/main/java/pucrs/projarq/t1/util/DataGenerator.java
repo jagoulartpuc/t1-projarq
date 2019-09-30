@@ -41,8 +41,15 @@ public class DataGenerator {
 
 
 
-//            students.add(new Student(fullname, courses[r.nextInt(courses.length)], cpfs[r.nextInt(cpfs.length)],
-//                    passwords[r.nextInt(passwords.length)], false));
+        for(int i = 0; i < 100; i++) {
+            String fullname = names[r.nextInt(names.length)] + " " + lastNames[r.nextInt(lastNames.length)];
+            Student s1 = new Student();
+            s1.setName(fullname);
+            s1.setCourse(courses[r.nextInt(courses.length)]);
+            s1.setCpf(cpfs[r.nextInt(cpfs.length)]);
+            s1.setId(r.nextInt());
+            s1.setPassword(passwords[r.nextInt(passwords.length)]);
+        }
         return students;
         }
 
