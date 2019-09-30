@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Team {
 
-    private int idGenerator = 0;
+    private static int idGenerator = 0;
 
     public Team(){
         int id = idGenerator++;
