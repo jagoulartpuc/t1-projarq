@@ -5,6 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -28,36 +32,62 @@
                     </ul>
                 </div>
             </nav>
-            <h1 align="center">Hackaton Manager</h1>
-            <h2>Lista de Equipes</h2>
+            <div class="row">
+                <tr class="row"> <h3>Adicionar integrante</h3></tr>
+            </div>
+            <tr class="row"> <label>CPF: </label><input id="cpf" type="text" size="13"> <button onclick="addAluno(cpf)" >Adicionar</button></tr>
+            <h1 align="center">Criar Equipe</h1>
+            <div id="formEquipe"></div>
+            <h2>Lista Integrantes</h2>
             <form>
-                <table class="table">
+                <table id="formTable" class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Equipe</th>
-                            <th scope="col">Integrantes</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Curso</th>
                             <th scope="col">Ação</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <th:block th:each="team : ${teamList}">
-                            <tr>
-                                <td th:text="${team.teamId}"></td>
-                                <td th:text="${team.name}"></td>
-                                <td th:text="${team.students.size()}"></td>
-                                <td><a th:href="@{/team/{teamId}(teamId=${team.teamId})}">Editar</a></td>
-                            </tr>
-                        </th:block>
+
                     </tbody>
                 </table>
+                </nav>
+
+                    <tr class="row"> <label>Equipe: </label><input id="teamName" type="text" size="10"> <button>Cadastrar</button></tr>
+
             </form>
         </div>
+        </div>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
+    <script>
+
+        function addAluno(name){
+            console.log(jQuery("#cpf").val());
+            var cpf = jQuery("#cpf").val()
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:8080/t1/teams/participant/'+cpf,
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(data) {
+                    console.log(data.name)
+                    console.log(data.course)
+                    console.log(data.cpf)
+
+                    var row = '<tr><td>'+data.name+'<td>'+'<td>'+data.course+'</td></tr>';
+
+                    $("#formTable").append(row)
+
+                }
+            });
+        }
+
+
+    </script>
+
+
+
 </html>

@@ -49,6 +49,7 @@ public class DataGenerator {
             s1.setCpf(cpfs[r.nextInt(cpfs.length)]);
             s1.setId(r.nextInt());
             s1.setPassword(passwords[r.nextInt(passwords.length)]);
+            students.add(s1);
         }
         return students;
         }
