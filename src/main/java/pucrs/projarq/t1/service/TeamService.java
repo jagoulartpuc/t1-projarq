@@ -11,10 +11,14 @@ import pucrs.projarq.t1.repository.TeamDataBase;
 @Service
 public class TeamService {
 
-    @Autowired
     private TeamDataBase teamDataBase;
 
-    public void insert(Team team) {
+    @Autowired
+    public TeamService(TeamDataBase teamDataBase){
+        this.teamDataBase = teamDataBase;
+    }
+
+    public void  insert(Team team) {
         if(team.getStudents() == null || team.getStudents().isEmpty()) {
             teamDataBase.addTeam(team);
         }

@@ -12,6 +12,25 @@ public class TeamDataBase {
 
     private List<Team> teamsBase = new ArrayList<>();
 
+    public TeamDataBase(){
+        Team t1 = new Team();
+        t1.setName("Time 1");
+        t1.setTeamId("1");
+        Student s1 = new Student();
+        s1.setName("S1 teste");
+        s1.setCpf("190");
+        Student s2 = new Student();
+        s2.setName("s2 teste");
+        s2.setCpf("20");
+        s1.setCourse("Ciencia da Computação");
+        s2.setCourse("Engenharia de Software");
+        ArrayList<Student> students = new ArrayList<Student>();
+        students.add(s1);
+        students.add(s2);
+        t1.setStudents(students);
+        teamsBase.add(t1);
+    }
+
     public List<Team> getTeamsBase() {
         return teamsBase;
     }

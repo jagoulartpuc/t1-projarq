@@ -21,11 +21,16 @@ import pucrs.projarq.t1.service.TeamService;
 @RequestMapping("/t1/teams")
 public class TeamController {
 
-    @Autowired
     private TeamService service;
 
-    @Autowired
     private ReviewerService reviewerService;
+
+    @Autowired
+    public TeamController(TeamService teamService, ReviewerService reviewerService){
+        this.service = teamService;
+        this.reviewerService = reviewerService;
+    }
+
 
     @PostMapping
     public Team postTeam(
