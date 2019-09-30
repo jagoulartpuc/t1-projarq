@@ -21,17 +21,15 @@
             <th scope="col">Processo</th>
             <th scope="col">Inovação</th>
             <th scope="col">Pitch</th>
-            <th scope="col">Formação do Time</th>
             <th scope="col">Ação</a></th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td><input disabled="true" size="2px"></td>
-            <td><input disabled="true" size="2px"></td>
-            <td><input disabled="true" size="2px"></td>
-            <td><input disabled="true" size="2px"></td>
-            <td><input disabled="true" size="2px"></td>
+            <td th:text="${teamReview.working}"></td>
+            <td th:text="${teamReview.process}"></td>
+            <td th:text="${teamReview.innovation}"></td>
+            <td th:text="${teamReview.process}"></td>
             <td><a th:href="@{/team/review/{teamId}(teamId=${team.teamId})}">Editar</a></td>
         </tr>
         </tbody>

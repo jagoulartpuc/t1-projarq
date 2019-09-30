@@ -1,20 +1,16 @@
 package pucrs.projarq.t1.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pucrs.projarq.t1.domain.Review;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.service.ReviewerService;
 import pucrs.projarq.t1.service.TeamService;
 
-import javax.websocket.server.PathParam;
-
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/t1/teams")
 @CrossOrigin(origins = "http://localhost:3000")
 public class TeamController {
 
@@ -88,7 +84,7 @@ public class TeamController {
 
     }
 
-    @PutMapping("/review")
+    @PostMapping("/review")
     public Team putReviewToTeam(
             @RequestBody Review review,
             @RequestParam String teamId

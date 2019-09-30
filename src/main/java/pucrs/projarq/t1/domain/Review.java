@@ -10,7 +10,7 @@ public class Review {
     private String working;
     private String process;
     private String pitch;
-    private String inovation;
+    private String innovation;
     private String teamFormation;
 
 }

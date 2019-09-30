@@ -22,18 +22,20 @@
             <th scope="col">Processo</th>
             <th scope="col">Inovação</th>
             <th scope="col">Pitch</th>
-            <th scope="col">Formação do Time</th>
             <th scope="col">Ação</a></th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td><input name="work" type="text" size="10px"></td>
-            <td><input name="process"type="text" size="10px"></td>
-            <td><input name="innovation" type="text" size="10px"></td>
-            <td><input name="pitch" type="text" size="10px"></td>
-            <td><input name="formation" type="text" size="10px"></td>
-            <td><a href="/">Salvar</a></td>
+            <td><label for="working"></label><input th:value="${teamReview.working}" id="working" type="text" size="5"></td>
+            <td><label for="process"></label><input th:value="${teamReview.process}" id="process" type="text" size="5"></td>
+            <td><label for="innovation"></label><input th:value="${teamReview.innovation}" id="innovation" type="text" size="5"></td>
+            <td><label for="pitch"></label><input th:value="${teamReview.pitch}" id="pitch" type="text" size="5"></td>
+            <td><a href="javascript:submitReview()">Salvar</a></td>
+            <td><label hidden="true" for="teamId"></label><input hidden="true" th:value="${team.teamId}" id="teamId" type="text" size="5"></td>
+
+
+
         </tr>
         </tbody>
 
@@ -66,8 +68,41 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
+<script>
+    function submitReview(){
+        console.log('ALO');
+        let review = {
+            working:'',
+            process:'',
+            innovation:'',
+            pitch:''
+        };
+        let teamId = jQuery("#teamId").val();
+        review.working = jQuery("#working").val();
+        review.process = jQuery("#process").val();
+        review.innovation = jQuery("#innovation").val();
+        review.pitch = jQuery("#pitch").val();
+        console.log(review);
+        console.log(JSON.stringify(review));
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8080/t1/teams/review?teamId='+teamId,
+            data: JSON.stringify(review),
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function() {
+                window.location.href='http://localhost:8080/team/'+teamId
+            }
+        });
+    }
+
+    function refreshPage(){
+
+    }
+</script>
 </html>

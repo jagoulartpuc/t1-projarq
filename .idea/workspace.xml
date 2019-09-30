@@ -2,9 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b02f553-c326-4f1d-ad4b-9e75892b6750" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviewEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviewEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/teamEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/teamEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/controller/StudentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/controller/TeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/controller/TeamFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/controller/TeamFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/domain/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/domain/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/domain/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/domain/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/domain/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/repository/ReviewerDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/repository/ReviewerDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/repository/StudentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/repository/TeamDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/repository/TeamDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/repository/TeamRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/service/ReviewerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/service/ReviewerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/service/StudentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/service/TeamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/util/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/util/DataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviewEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviewEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teamEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teamEdit.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,8 +95,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.HTML" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -124,6 +158,7 @@
       <updated>1568816518466</updated>
       <workItem from="1568816522305" duration="34644000" />
       <workItem from="1569811216807" duration="228000" />
+      <workItem from="1569815073968" duration="8377000" />
     </task>
     <servers />
   </component>
@@ -135,7 +170,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -151,7 +188,7 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/controller/TeamController.java</url>
-          <line>55</line>
+          <line>51</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

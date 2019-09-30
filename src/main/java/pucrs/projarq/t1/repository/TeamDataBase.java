@@ -78,7 +78,4 @@ public class TeamDataBase {
 
         return getById(teamId).getStudents().remove(student);
     }
-
-
-
 }

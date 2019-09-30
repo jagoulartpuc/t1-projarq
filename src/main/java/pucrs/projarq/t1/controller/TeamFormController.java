@@ -42,6 +42,7 @@ public class TeamFormController {
         Team team = teamController.getTeam(teamId);
         mav.addObject("team", team);
         mav.addObject("students", team.getStudents());
+        mav.addObject("teamReview",team.getReview());
 
         return mav;
     }

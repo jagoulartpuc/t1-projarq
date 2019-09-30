@@ -12,6 +12,6 @@ public class Team {
     private String teamId;
     private String name;
     private List<Student> students = new ArrayList<>();
-    private Review review;
+    private Review review = new Review();
 
 }
