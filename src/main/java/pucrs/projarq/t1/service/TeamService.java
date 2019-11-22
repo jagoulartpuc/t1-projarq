@@ -9,6 +9,7 @@ import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.exception.NotAValidTeamException;
 import pucrs.projarq.t1.repository.TeamDataBase;
 import pucrs.projarq.t1.util.DataGenerator;
+import pucrs.projarq.t1.util.SingletonStudentsList;
 
 @Service
 public class TeamService {
@@ -55,7 +56,7 @@ public class TeamService {
     }
 
     public List<Student> findAllStudents() {
-        return DataGenerator.students;
+        return SingletonStudentsList.getInstance().getStudents();
     }
 
     public Team findById(String id) {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Component
 public class StudentDataBase {
 
-    ArrayList<Student> studentDataBase = new ArrayList<Student>();
+    ArrayList<Student> studentDataBase = new ArrayList<>();
 
     public ArrayList<Student> getAll(){
         return studentDataBase;

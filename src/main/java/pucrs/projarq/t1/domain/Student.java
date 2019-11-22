@@ -1,6 +1,5 @@
 package pucrs.projarq.t1.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 

@@ -7,9 +7,6 @@ import pucrs.projarq.t1.domain.Student;
 
 public class DataGenerator {
 
-    public static final ArrayList<Student> students = new ArrayList<>(generateStudents());
-
-
     public static List<Student> generateStudents() {
 
         List<Student> students = new ArrayList<>();

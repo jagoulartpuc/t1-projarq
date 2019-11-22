@@ -7,6 +7,7 @@ import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.exception.ParticipantDontExistException;
 import pucrs.projarq.t1.util.DataGenerator;
+import pucrs.projarq.t1.util.SingletonStudentsList;
 
 @Component
 public class TeamDataBase {
@@ -57,7 +58,7 @@ public class TeamDataBase {
 
     public void addParticipant(String cpf, String teamId) {
         Student student = getByCpf(cpf);
-        if (DataGenerator.students.contains(student)) {
+        if (SingletonStudentsList.getInstance().getStudents().contains(student)) {
             getById(teamId).getStudents().add(student);
         } else {
             throw new ParticipantDontExistException();
@@ -65,7 +66,7 @@ public class TeamDataBase {
     }
 
     public Student getByCpf(String cpf) {
-        for (Student student: DataGenerator.students) {
+        for (Student student: SingletonStudentsList.getInstance().getStudents()) {
             if (student.getCpf().equals(cpf)) {
                 return student;
             }
