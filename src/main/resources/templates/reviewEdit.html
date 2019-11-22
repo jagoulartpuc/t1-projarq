@@ -28,11 +28,11 @@
         </thead>
         <tbody>
         <tr>
-            <td><input name="work" type="text" size="10px"></td>
-            <td><input name="process"type="text" size="10px"></td>
-            <td><input name="innovation" type="text" size="10px"></td>
-            <td><input name="pitch" type="text" size="10px"></td>
-            <td><input name="formation" type="text" size="10px"></td>
+            <td><input name="work" th:value="${teamReview.working}" type="text" size="10px"></td>
+            <td><input name="process" th:value="${teamReview.process}"  type="text" size="10px"></td>
+            <td><input name="innovation" th:value="${teamReview.innovation}" type="text" size="10px"></td>
+            <td><input name="pitch" th:value="${teamReview.pitch}" type="text" size="10px"></td>
+            <td><input name="formation" th:value="${teamReview.teamFormation}" type="text" size="10px"></td>
             <td><a href="/">Salvar</a></td>
         </tr>
         </tbody>

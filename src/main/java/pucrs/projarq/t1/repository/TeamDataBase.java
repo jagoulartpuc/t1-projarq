@@ -3,6 +3,7 @@ package pucrs.projarq.t1.repository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
+import pucrs.projarq.t1.domain.Review;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.exception.ParticipantDontExistException;
@@ -29,6 +30,13 @@ public class TeamDataBase {
         students.add(s1);
         students.add(s2);
         t1.setStudents(students);
+        Review r1 = new Review();
+        r1.setInnovation("10");
+        r1.setPitch("9");
+        r1.setProcess("7");
+        r1.setTeamFormation("3");
+        r1.setWorking("32");
+        t1.setReview(r1);
         teamsBase.add(t1);
     }
 
