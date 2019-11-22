@@ -4,14 +4,15 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
-<<<<<<< HEAD
+
 import pucrs.projarq.t1.repository.TeamRepository;
-=======
+
 import pucrs.projarq.t1.exception.NotAValidTeamException;
 import pucrs.projarq.t1.repository.TeamDataBase;
 import pucrs.projarq.t1.util.DataGenerator;
->>>>>>> origin/back
+
 
 @Service
 public class TeamService {

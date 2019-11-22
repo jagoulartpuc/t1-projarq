@@ -45,11 +45,11 @@ public class TeamRepository {
         s5.setCourse("EC");
 
         Team t1 = new Team();
-        t1.setId(650);
+        t1.setTeamId("123");
         t1.setName("Time Noturno");
 
         Team t2 = new Team();
-        t2.setId(867);
+        t2.setTeamId("3232");
         t2.setName("Time Criador");
 
 
@@ -80,9 +80,9 @@ public class TeamRepository {
         return repository.add(t);
     }
 
-    public Team getById(int id){
+    public Team getById(String id){
         for(Team team : repository){
-            if(id == team.getId()){
+            if(id.equals(team.getTeamId())){
                 return team;
             }
         }
