@@ -1,27 +1,25 @@
 package pucrs.projarq.t1.service;
 
 import java.util.List;
-import java.util.Optional;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.exception.NotAValidTeamException;
 import pucrs.projarq.t1.repository.TeamDataBase;
-import pucrs.projarq.t1.util.DataGenerator;
-import pucrs.projarq.t1.util.SingletonStudentsList;
 
 @Service
+@RequiredArgsConstructor
 public class TeamService {
 
     private TeamDataBase teamDataBase;
-
 
     @Autowired
     public TeamService(TeamDataBase teamDataBase) {
         this.teamDataBase = teamDataBase;
     }
-
 
     public void insert(Team team) {
         if (team.getStudents() == null || team.getStudents().isEmpty()) {
@@ -53,10 +51,6 @@ public class TeamService {
 
     public List<Team> findAll() {
         return teamDataBase.getTeamsBase();
-    }
-
-    public List<Student> findAllStudents() {
-        return SingletonStudentsList.getInstance().getStudents();
     }
 
     public Team findById(String id) {

@@ -21,4 +21,8 @@ public class Team {
     private List<Student> students = new ArrayList<>();
     private Review review = new Review();
 
+    public Team(String name, List<Student> students) {
+        this.name = name;
+        this.students = students;
+    }
 }

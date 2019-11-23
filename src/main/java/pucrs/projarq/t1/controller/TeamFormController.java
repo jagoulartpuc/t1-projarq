@@ -6,22 +6,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 import pucrs.projarq.t1.domain.Team;
-import pucrs.projarq.t1.repository.TeamDataBase;
-import pucrs.projarq.t1.service.ReviewerService;
-import pucrs.projarq.t1.service.StudentService;
-import pucrs.projarq.t1.service.TeamService;
-
 import java.util.ArrayList;
 
 @Controller
 public class TeamFormController {
 
     @Autowired
-    TeamController teamController = new TeamController(new TeamService(new TeamDataBase()), new ReviewerService(), new StudentService());
+    TeamController teamController;
 
-    ArrayList<Team> teamList = new ArrayList<Team>();
+    ArrayList<Team> teamList = new ArrayList<>();
 
-    @GetMapping(value="/")
+    @GetMapping("/")
     public ModelAndView index(){
         System.out.println("Team List");
         ModelAndView mav = new ModelAndView("teamList");
@@ -35,7 +30,7 @@ public class TeamFormController {
         return mav;
     }
 
-    @GetMapping(value="/team/{teamId}")
+    @GetMapping("/team/{teamId}")
     public ModelAndView editTeam(@PathVariable("teamId") String teamId){
         System.out.println("Team Edit");
         System.out.println(teamId);

@@ -12,12 +12,12 @@ public class ReviewerDataBase {
 
     private List<Reviewer> reviewersBase = new ArrayList<>();
 
+    @Autowired
+    private TeamDataBase teamBase;
+
     public List<Reviewer> getReviewersBase() {
         return reviewersBase;
     }
-
-    @Autowired
-    private TeamDataBase teamBase;
 
     public void addReviewer(Reviewer reviewer) {
         reviewersBase.add(reviewer);

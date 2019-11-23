@@ -3,6 +3,8 @@ package pucrs.projarq.t1.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import pucrs.projarq.t1.builder.StudentBuilder;
 import pucrs.projarq.t1.domain.Student;
 
 public class DataGenerator {
@@ -40,14 +42,17 @@ public class DataGenerator {
 
         for(int i = 0; i < 100; i++) {
             String fullname = names[r.nextInt(names.length)] + " " + lastNames[r.nextInt(lastNames.length)];
-            Student s1 = new Student();
-            s1.setName(fullname);
-            s1.setCourse(courses[r.nextInt(courses.length)]);
-            s1.setCpf(cpfs[r.nextInt(cpfs.length)]);
-            s1.setId(r.nextInt());
-            s1.setPassword(passwords[r.nextInt(passwords.length)]);
-            students.add(s1);
+            Student student = new StudentBuilder()
+                    .withName(fullname)
+                    .withCourse(courses[r.nextInt(courses.length)])
+                    .withCpf(cpfs[r.nextInt(cpfs.length)])
+                    .withId(r.nextInt())
+                    .withPassword(passwords[r.nextInt(passwords.length)])
+                    .build();
+
+            students.add(student);
         }
+
         return students;
         }
 

@@ -2,17 +2,21 @@ package pucrs.projarq.t1.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.exception.ParticipantDontExistException;
-import pucrs.projarq.t1.util.DataGenerator;
-import pucrs.projarq.t1.util.SingletonStudentsList;
+import pucrs.projarq.t1.service.StudentService;
 
 @Component
 public class TeamDataBase {
 
     private List<Team> teamsBase = new ArrayList<>();
+
+    @Autowired
+    private StudentService studentService;
 
     public TeamDataBase(){
         Team t1 = new Team();
@@ -58,7 +62,7 @@ public class TeamDataBase {
 
     public void addParticipant(String cpf, String teamId) {
         Student student = getByCpf(cpf);
-        if (SingletonStudentsList.getInstance().getStudents().contains(student)) {
+        if (studentService.getAll().contains(student)) {
             getById(teamId).getStudents().add(student);
         } else {
             throw new ParticipantDontExistException();
@@ -66,7 +70,7 @@ public class TeamDataBase {
     }
 
     public Student getByCpf(String cpf) {
-        for (Student student: SingletonStudentsList.getInstance().getStudents()) {
+        for (Student student: studentService.getAll()) {
             if (student.getCpf().equals(cpf)) {
                 return student;
             }

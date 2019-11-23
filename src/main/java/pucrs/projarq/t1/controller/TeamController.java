@@ -2,11 +2,13 @@ package pucrs.projarq.t1.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pucrs.projarq.t1.domain.Review;
 import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
+import pucrs.projarq.t1.factory.TeamFactory;
 import pucrs.projarq.t1.service.ReviewerService;
 import pucrs.projarq.t1.service.StudentService;
 import pucrs.projarq.t1.service.TeamService;
@@ -14,24 +16,18 @@ import pucrs.projarq.t1.service.TeamService;
 @RestController
 @RequestMapping("/t1/teams")
 @CrossOrigin(origins = "http://localhost:3000")
+@RequiredArgsConstructor
 public class TeamController {
 
-    private TeamService service;
-    private ReviewerService reviewerService;
-    private StudentService studentService;
-
-    @Autowired
-    public TeamController(TeamService teamService, ReviewerService reviewerService, StudentService studentService){
-        this.service = teamService;
-        this.reviewerService = reviewerService;
-        this.studentService = studentService;
-    }
+    private final TeamService teamService;
+    private final StudentService studentService;
+    private final ReviewerService reviewerService;
 
     @PostMapping
     public Team postTeam(
             @RequestBody Team team
     ) {
-        service.insert(team);
+        teamService.insert(team);
 
         return team;
     }
@@ -40,14 +36,13 @@ public class TeamController {
     public Team createTeam(@RequestBody ArrayList<Student> students, @PathVariable String name){
         System.out.println("Create team");
         System.out.println(students);
-        Team team = new Team();
-        ArrayList<Student> listStudents = new ArrayList<Student>();
+        ArrayList<Student> listStudents = new ArrayList<>();
 
         for(Student s : students){
             System.out.println(s.getName());
         }
 
-        for(Student s : service.findAllStudents()){
+        for(Student s : studentService.getAll()){
             for(Student aux : students){
                 if(aux.getName().equals(s.getName())){
                     System.out.println("ACCCCCCCCCCCHEI");
@@ -61,9 +56,8 @@ public class TeamController {
             System.out.println(s.getCpf());
         }
 
-        team.setName(name);
-        team.setStudents(listStudents);
-        service.insert(team);
+        Team team = TeamFactory.createTeam(name, listStudents);
+        teamService.insert(team);
         return team;
 
     }
@@ -73,41 +67,41 @@ public class TeamController {
             @RequestParam("cpf") String cpf,
             @RequestParam("teamId") String teamId
     ) {
-        service.insertParticipant(cpf, teamId);
+       teamService.insertParticipant(cpf, teamId);
 
         return cpf;
     }
 
     @GetMapping
     public List<Team> getAll() {
-        return service.findAll();
+        return teamService.findAll();
     }
 
     @GetMapping("/participant")
     public List<Student> getAllStudents() {
-        System.out.println(service.findAllStudents());
-        return service.findAllStudents();
+        System.out.println(studentService.getAll());
+        return studentService.getAll();
     }
 
     @GetMapping("/{teamId}")
     public Team getTeam(
             @PathVariable("teamId") String teamId
     ) {
-        return service.findById(teamId);
+        return teamService.findById(teamId);
     }
 
     @GetMapping("/participant/{cpf}")
     public Student getParticipant(
             @PathVariable("cpf") String cpf
     ) {
-        return service.findByCpf(cpf);
+        return teamService.findByCpf(cpf);
     }
 
     @DeleteMapping
     public Team deleteTeam(
             @RequestBody Team team
     ) {
-        return service.delete(team);
+        return teamService.delete(team);
     }
 
     @DeleteMapping("/participant")
@@ -115,7 +109,7 @@ public class TeamController {
             @RequestBody Student student,
             @RequestParam("teamId") String teamId
     ) {
-        return service.removeParticipant(student, teamId);
+        return teamService.removeParticipant(student, teamId);
 
     }
 
@@ -125,6 +119,6 @@ public class TeamController {
             @RequestParam String teamId
     ) {
         reviewerService.insertReviewToTeam(teamId, review);
-        return service.findById(teamId);
+        return teamService.findById(teamId);
     }
 }

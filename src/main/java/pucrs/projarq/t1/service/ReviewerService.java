@@ -1,6 +1,8 @@
 package pucrs.projarq.t1.service;
 
 import java.util.List;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pucrs.projarq.t1.domain.Review;
@@ -9,6 +11,7 @@ import pucrs.projarq.t1.repository.ReviewerDataBase;
 import pucrs.projarq.t1.repository.TeamDataBase;
 
 @Service
+@RequiredArgsConstructor
 public class ReviewerService {
 
     @Autowired
