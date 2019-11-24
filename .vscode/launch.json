@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - T1Application",
+            "request": "launch",
+            "mainClass": "pucrs.projarq.t1.T1Application",
+            "projectName": "t1"
+        }
+    ]
+}
