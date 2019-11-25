@@ -65,6 +65,10 @@ public class TeamService {
         return teamDataBase.deleteTeam(team);
     }
 
+    public void deleteParticipant(String cpf, String teamId){
+            teamDataBase.deleteParticipant(cpf,teamId);
+    }
+
     public void insertParticipant(String cpf, String teamId) {
         teamDataBase.addParticipant(cpf, teamId);
     }

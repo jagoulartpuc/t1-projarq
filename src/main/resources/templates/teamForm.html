@@ -69,7 +69,7 @@
     <script>
         function addAluno(name){
             console.log(jQuery("#cpf").val());
-            var cpf = jQuery("#cpf").val()
+            var cpf = jQuery("#cpf").val();
             $.ajax({
                 type: 'GET',
                 url: 'http://localhost:8080/t1/teams/participant/'+cpf,
@@ -82,18 +82,18 @@
             });
         }
         function submitTeam(){
-            console.log('Submit Team')
-            var cpfs = []
+            console.log('Submit Team');
+            var cpfs = [];
             var name = jQuery("#teamName").val();
             $('.name').each(function() {
                 var cellText = $(this).html();
-                console.log(cellText)
+                console.log(cellText);
                 cpfs.push({
                     name:cellText
                 })
             });
             console.log(JSON.stringify(cpfs));
-            console.log(name)
+            console.log(name);
             $.ajax({
                 type: 'POST',
                 url: 'http://localhost:8080/t1/teams/team/'+name,
@@ -109,7 +109,7 @@
     </script>
     <script>
 
-        var availableTags = []
+        var availableTags = [];
 
         function getAlunos(){
             //console.log(jQuery("#cpf").val());
@@ -120,12 +120,12 @@
                 dataType: 'json',
                 contentType: 'application/json',
                 success: function(data) {
-                    data.forEach((v, i) => availableTags.push(v.cpf))
+                    data.forEach((v, i) => availableTags.push(v.cpf);)
                 }
             });
         }
 
-        getAlunos()
+        getAlunos();
 
         $( function() {
             $( "#cpf" ).autocomplete({

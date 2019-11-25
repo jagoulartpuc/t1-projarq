@@ -15,7 +15,7 @@ import pucrs.projarq.t1.service.TeamService;
 
 @RestController
 @RequestMapping("/t1/teams")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:8080")
 @RequiredArgsConstructor
 public class TeamController {
 
@@ -72,6 +72,21 @@ public class TeamController {
         return cpf;
     }
 
+    @DeleteMapping("/participant")
+    public String deleteParticipant(
+            @RequestParam("cpf") String cpf,
+            @RequestParam("teamId") String teamId
+    ) {
+        System.out.println("teste delete participant");
+        System.out.println(cpf);
+        System.out.println(teamId);
+        teamService.deleteParticipant(cpf, teamId);
+
+        return cpf;
+    }
+
+
+
     @GetMapping
     public List<Team> getAll() {
         return teamService.findAll();
@@ -104,14 +119,14 @@ public class TeamController {
         return teamService.delete(team);
     }
 
-    @DeleteMapping("/participant")
-    public boolean removeParticipant(
-            @RequestBody Student student,
-            @RequestParam("teamId") String teamId
-    ) {
-        return teamService.removeParticipant(student, teamId);
-
-    }
+    //@DeleteMapping("/participant")
+    //public boolean removeParticipant(
+    //        @RequestBody Student student,
+    //        @RequestParam("teamId") String teamId
+    //) {
+    //    return teamService.removeParticipant(student, teamId);
+    //
+    //}
 
     @PostMapping("/review")
     public Team putReviewToTeam(

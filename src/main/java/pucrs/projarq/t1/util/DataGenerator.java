@@ -40,7 +40,7 @@ public class DataGenerator {
 
 
 
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i < 10; i++) {
             String fullname = names[r.nextInt(names.length)] + " " + lastNames[r.nextInt(lastNames.length)];
             Student student = new StudentBuilder()
                     .withName(fullname)

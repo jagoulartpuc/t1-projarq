@@ -9,6 +9,7 @@ import pucrs.projarq.t1.domain.Student;
 import pucrs.projarq.t1.domain.Team;
 import pucrs.projarq.t1.exception.ParticipantDontExistException;
 import pucrs.projarq.t1.service.StudentService;
+import pucrs.projarq.t1.util.SingletonStudentsList;
 
 @Component
 public class TeamDataBase {
@@ -22,14 +23,9 @@ public class TeamDataBase {
         Team t1 = new Team();
         t1.setName("Time 1");
         t1.setTeamId("1");
-        Student s1 = new Student();
-        s1.setName("S1 teste");
-        s1.setCpf("190");
-        Student s2 = new Student();
-        s2.setName("s2 teste");
-        s2.setCpf("20");
-        s1.setCourse("Ciencia da Computação");
-        s2.setCourse("Engenharia de Software");
+        Student s1 = SingletonStudentsList.getInstance().getStudents().get(0);
+        Student s2 = SingletonStudentsList.getInstance().getStudents().get(1);
+
         ArrayList<Student> students = new ArrayList<Student>();
         students.add(s1);
         students.add(s2);
@@ -67,6 +63,13 @@ public class TeamDataBase {
         } else {
             throw new ParticipantDontExistException();
         }
+    }
+
+    public void deleteParticipant(String cpf, String teamId){
+        Student student = getByCpf(cpf);
+
+            getById(teamId).getStudents().remove(student);
+
     }
 
     public Student getByCpf(String cpf) {
