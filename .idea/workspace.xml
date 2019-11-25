@@ -2,63 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e340c1f9-bb72-4e47-b311-329d2c1b769d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pucrs/projarq/t1/controller/StudentFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/studentList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pucrs/projarq/t1/controller/TeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pucrs/projarq/t1/controller/TeamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pucrs/projarq/t1/domain/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pucrs/projarq/t1/domain/Team.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviewEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviewEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/studentList.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/studentList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/teamEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/teamEdit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/teamForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/teamForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/teamList.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/teamList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/T1Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/controller/ReviewerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/controller/TeamController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/controller/TeamFormController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/domain/Review.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/domain/Reviewer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/domain/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/domain/Team.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/domain/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/exception/NotAValidTeamException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/exception/ParticipantDontExistException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/repository/ReviewerDataBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/repository/StudentDataBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/repository/TeamDataBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/service/ReviewerService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/service/StudentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/service/TeamService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/util/DataGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/pucrs/projarq/t1/util/SingletonStudentsList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/_DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/pucrs/_DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/pucrs/projarq/_DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/pucrs/projarq/t1/_DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/reviewEdit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/teamEdit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/teamForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/teamList.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/views/index/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/views/studentForm/studentForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/views/teamForm/teamForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/pucrs/projarq/t1/T1ApplicationTests.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviewEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviewEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/studentList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/studentList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teamEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teamEdit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teamForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teamForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teamList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teamList.html" afterDir="false" />
@@ -148,7 +106,8 @@
       <updated>1569843366703</updated>
       <workItem from="1569843368387" duration="16946000" />
       <workItem from="1574567694955" duration="686000" />
-      <workItem from="1574599848522" duration="1972000" />
+      <workItem from="1574599848522" duration="6567000" />
+      <workItem from="1574634144031" duration="2107000" />
     </task>
     <servers />
   </component>
