@@ -92,14 +92,14 @@
         var tst = cpfToRemove.split(",")
         console.log(tst[0])
         console.log(tst[1])
-
+		console.log('caralho')
         $.ajax({
             type: 'DELETE',
             url: 'http://localhost:8080/t1/teams/participant?cpf='+tst[0]+'&teamId='+tst[1],
-            dataType: 'json',
-            contentType: 'application/json',
-            success: function(data) {
-
+            success: function() {
+            	console.log('mas quer caralho')
+            	alert('Participante excluído do time com sucesso!');
+                window.location.href='http://localhost:8080/team/'+tst[1]
             }
         });
     }

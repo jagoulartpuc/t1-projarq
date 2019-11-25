@@ -65,11 +65,9 @@ public class TeamDataBase {
         }
     }
 
-    public void deleteParticipant(String cpf, String teamId){
+    public boolean deleteParticipant(String cpf, String teamId){
         Student student = getByCpf(cpf);
-
-            getById(teamId).getStudents().remove(student);
-
+        return getById(teamId).getStudents().remove(student);
     }
 
     public Student getByCpf(String cpf) {
