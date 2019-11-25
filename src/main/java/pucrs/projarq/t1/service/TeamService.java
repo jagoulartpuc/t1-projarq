@@ -31,7 +31,7 @@ public class TeamService {
         }
     }
 
-    private boolean validateTeam(Team team) {
+    public boolean validateTeam(Team team) {
         int countES = 0, countCC = 0, countEC = 0, countSI = 0;
         for (Student student : team.getStudents()) {
             if (student.getCourse().equals("Engenharia de Software")) {

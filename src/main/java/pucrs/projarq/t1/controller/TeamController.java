@@ -56,11 +56,14 @@ public class TeamController {
         for(Student s : listStudents){
             System.out.println(s.getCpf());
         }
-
+        
+        
         Team team = TeamFactory.createTeam(name, listStudents);
-        teamService.insert(team);
-        return team;
-
+        if(teamService.validateTeam(team)) {
+        	teamService.insert(team);
+        	return team;
+        }
+        return null;
     }
 
     @PostMapping("/participant")
