@@ -37,6 +37,7 @@ public class TeamController {
         System.out.println("Create team");
         System.out.println(students);
         ArrayList<Student> listStudents = new ArrayList<>();
+        System.out.println("teste callback fn");
 
         for(Student s : students){
             System.out.println(s.getName());

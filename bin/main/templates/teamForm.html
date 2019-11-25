@@ -101,6 +101,7 @@
                 data: JSON.stringify(cpfs),
                 contentType: 'application/json',
                 success: function(data) {
+                	console.log(data)
                     alert('Time criado com sucesso!');
                     window.location.href='http://localhost:8080/team/'+data.teamId
                 }

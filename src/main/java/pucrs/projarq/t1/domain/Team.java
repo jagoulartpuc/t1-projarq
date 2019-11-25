@@ -22,6 +22,8 @@ public class Team {
     private Review review = new Review();
 
     public Team(String name, List<Student> students) {
+    	int id = idGenerator++;
+        this.teamId = Integer.toString(id);
         this.name = name;
         this.students = students;
     }

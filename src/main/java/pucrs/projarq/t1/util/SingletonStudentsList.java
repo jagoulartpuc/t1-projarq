@@ -9,18 +9,18 @@ import java.util.List;
 @Getter
 public class SingletonStudentsList {
 
-    private static SingletonStudentsList uniqueInstance;
-    private List<Student> students;
+	private static SingletonStudentsList uniqueInstance;
+	private List<Student> students;
 
-    private SingletonStudentsList() {
-        students = new ArrayList<>(DataGenerator.generateStudents());
-    }
+	private SingletonStudentsList() {
+		students = new ArrayList<>(DataGenerator.generateStudents());
+	}
 
-    public static synchronized SingletonStudentsList getInstance() {
-        if (uniqueInstance == null)
-            uniqueInstance = new SingletonStudentsList();
+	public static synchronized SingletonStudentsList getInstance() {
+		if (uniqueInstance == null)
+			uniqueInstance = new SingletonStudentsList();
 
-        return uniqueInstance;
-    }
+		return uniqueInstance;
+	}
 
 }

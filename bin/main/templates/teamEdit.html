@@ -75,7 +75,7 @@
                 <td th:text="${student.cpf}"></td>
                 <td th:text="${student.name}"></td>
                 <td th:text="${student.course}"></td>
-                <td><a th:attr="onclick=|removeParticipant('${student.cpf},${team.teamId}')|" >Excluir</a></td>
+                <td><a href="" th:attr="onclick=|removeParticipant('${student.cpf},${team.teamId}')|" >Excluir</a></td>
             </tr>
         </th:block>
         </tbody>
