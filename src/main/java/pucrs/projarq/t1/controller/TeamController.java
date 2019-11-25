@@ -113,11 +113,18 @@ public class TeamController {
         return teamService.findByCpf(cpf);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/team")
     public Team deleteTeam(
-            @RequestBody Team team
+            @RequestParam String teamId
     ) {
-        return teamService.delete(team);
+    	Team delete = null;
+    	for(Team t : teamService.findAll()) {
+    		if(t.getTeamId().equals(teamId)) {
+    			teamService.findAll().remove(t);
+    			return delete;
+    		}
+    	}
+        return delete;
     }
 
     //@DeleteMapping("/participant")
